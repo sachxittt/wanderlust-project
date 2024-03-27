@@ -14,6 +14,8 @@ async function main() {
 }
 // Example in server.js
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine','ejs')
+app.set('views/listings', path.join(__dirname, 'views/listings'));
 
 app.set('view engine','ejs')
 
@@ -21,11 +23,12 @@ app.set('view engine','ejs')
 
 // home route
 app.get("/",(req,res)=>{
-    res.send("Home route");
+    res.send("homw route");
+    
 })
 
 app.get("/listings",(req,res)=>{
-    res.send("all listings page")
+    res.render("listings/index.ejs")
 })
 
 
